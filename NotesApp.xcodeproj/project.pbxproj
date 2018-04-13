@@ -15,6 +15,8 @@
 		A55C4F4A2080C2430041A3A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A55C4F482080C2430041A3A1 /* LaunchScreen.storyboard */; };
 		A55C4F552080C2430041A3A1 /* NotesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C4F542080C2430041A3A1 /* NotesAppTests.swift */; };
 		A55C4F602080C2430041A3A1 /* NotesAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C4F5F2080C2430041A3A1 /* NotesAppUITests.swift */; };
+		A55C4F6E2080C2C70041A3A1 /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C4F6D2080C2C70041A3A1 /* MasterTableViewController.swift */; };
+		A55C4F702080C3170041A3A1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55C4F6F2080C3170041A3A1 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		A55C4F5B2080C2430041A3A1 /* NotesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A55C4F5F2080C2430041A3A1 /* NotesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAppUITests.swift; sourceTree = "<group>"; };
 		A55C4F612080C2430041A3A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A55C4F6D2080C2C70041A3A1 /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
+		A55C4F6F2080C3170041A3A1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				A55C4F482080C2430041A3A1 /* LaunchScreen.storyboard */,
 				A55C4F4B2080C2430041A3A1 /* Info.plist */,
 				A55C4F432080C2430041A3A1 /* NotesApp.xcdatamodeld */,
+				A55C4F6D2080C2C70041A3A1 /* MasterTableViewController.swift */,
+				A55C4F6F2080C3170041A3A1 /* DetailViewController.swift */,
 			);
 			path = NotesApp;
 			sourceTree = "<group>";
@@ -263,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A55C4F452080C2430041A3A1 /* NotesApp.xcdatamodeld in Sources */,
+				A55C4F6E2080C2C70041A3A1 /* MasterTableViewController.swift in Sources */,
+				A55C4F702080C3170041A3A1 /* DetailViewController.swift in Sources */,
 				A55C4F3F2080C2430041A3A1 /* ViewController.swift in Sources */,
 				A55C4F3D2080C2430041A3A1 /* AppDelegate.swift in Sources */,
 			);

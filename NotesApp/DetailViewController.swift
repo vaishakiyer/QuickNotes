@@ -8,28 +8,72 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
-
+class DetailViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var detailDescriptionLabel: UITextView!
+    
+    
+    var detailItem: AnyObject? {
+        didSet {
+            // Update the view.
+            self.configureView()
+        }
+    }
+    
+    func configureView() {
+        // Update the user interface for the detail item.
+        if objects.count == 0 {
+            return
+        }
+        if let label = self.detailDescriptionLabel {
+            label.text = objects[currentIndex]
+            if label.text == BLANK_NOTE {
+                label.text = ""
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view, typically from a nib.
+        detailViewController = self
+        detailDescriptionLabel.becomeFirstResponder() // Show the keyboard
+        detailDescriptionLabel.delegate = self
+        self.configureView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if objects.count == 0 {
+            // If no note, stop the function here
+            return
+        }
+        
+        objects[currentIndex] = detailDescriptionLabel.text
+        
+        if detailDescriptionLabel.text == "" {
+            objects[currentIndex] = BLANK_NOTE
+        }
+        
+        saveAndUpdateNotes()
     }
-    */
-
+    
+    func saveAndUpdateNotes() {
+        masterView?.saveNotes()
+        masterView?.tableView.reloadData()
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        objects[currentIndex] = detailDescriptionLabel.text
+        saveAndUpdateNotes()
+    }
+    
 }
+
+
