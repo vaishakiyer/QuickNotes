@@ -39,6 +39,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         detailViewController = self
         detailDescriptionLabel.becomeFirstResponder() // Show the keyboard
         detailDescriptionLabel.delegate = self
+      
         self.configureView()
     }
     
@@ -70,7 +71,7 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        objects[currentIndex] = detailDescriptionLabel.text
+       // objects[currentIndex] = detailDescriptionLabel.text
         saveAndUpdateNotes()
     }
     
