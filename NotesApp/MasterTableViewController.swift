@@ -26,6 +26,10 @@ class MasterViewController: UITableViewController {
         loadNotes()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
+        if objects.count == 1
+        {
+            self.navigationItem.leftBarButtonItem?.isEnabled = false
+        }
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(sender:)))
         self.navigationItem.rightBarButtonItem = addButton
     }
@@ -121,6 +125,9 @@ class MasterViewController: UITableViewController {
         if editing {
             disableEditing() // Disable editing mode when deleting a note
             return
+        }else
+        {
+            enableEditing()
         }
         saveNotes()
     }
