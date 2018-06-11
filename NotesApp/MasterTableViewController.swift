@@ -8,7 +8,7 @@
 
 import UIKit
 
-var objects:[String] = [String]();
+var objects = [String]()
 var currentIndex:Int = 0
 var masterView:MasterViewController?
 var detailViewController:DetailViewController?
@@ -26,10 +26,8 @@ class MasterViewController: UITableViewController {
         loadNotes()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         
-        if objects.count == 1
-        {
-            self.navigationItem.leftBarButtonItem?.isEnabled = false
-        }
+        self.navigationItem.leftBarButtonItem?.isEnabled = true
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(sender:)))
         self.navigationItem.rightBarButtonItem = addButton
     }
@@ -67,7 +65,7 @@ class MasterViewController: UITableViewController {
             let indexPath = NSIndexPath(row: 0, section: 0)
             self.tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
         }
-        currentIndex = 0 // Set the index to the default, top one
+       // currentIndex = 0 // Set the index to the default, top one
         self.performSegue(withIdentifier: "showDetail", sender: self)
     }
     
@@ -80,7 +78,9 @@ class MasterViewController: UITableViewController {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 currentIndex = indexPath.row
             }
+           
             let object = objects[currentIndex]
+           // currentIndex = currentIndex + 1
             detailViewController?.detailItem = object as AnyObject
             detailViewController?.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
             detailViewController?.navigationItem.leftItemsSupplementBackButton = true
@@ -99,7 +99,7 @@ class MasterViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
+        cell.accessoryType = .disclosureIndicator
         let object = objects[indexPath.row]
         cell.textLabel!.text = object
         return cell

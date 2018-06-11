@@ -12,7 +12,9 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var detailDescriptionLabel: UITextView!
     
-    
+//    var objects = [String]()
+//    var currentIndex:Int = 0
+    var blankLabel : String? = ""
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
@@ -53,14 +55,13 @@ class DetailViewController: UIViewController, UITextViewDelegate {
         
         if objects.count == 0 {
             // If no note, stop the function here
+            objects.append("")
             return
         }
         
-        objects[currentIndex] = detailDescriptionLabel.text
-        
-        if detailDescriptionLabel.text == "" {
-            objects[currentIndex] = BLANK_NOTE
-        }
+//        if  detailDescriptionLabel.text != ""{
+//            objects[currentIndex] = BLANK_NOTE
+//        }
         
         saveAndUpdateNotes()
     }
@@ -71,7 +72,12 @@ class DetailViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-       // objects[currentIndex] = detailDescriptionLabel.text
+        
+        
+        var valueFeeded = textView.text
+        //dobjects.append(detailDescriptionLabel.text!)
+       // objects.removeLast(objects.count - 1)
+        objects[currentIndex] = valueFeeded!
         saveAndUpdateNotes()
     }
     
